@@ -6,12 +6,19 @@ pubsubkey*
 *env
 conf/*
 environment.env
+/init.env
 data/
 secret.bak
 secret.env
 *bak
 mongo-backup/
 *tmp
+
+# Local TLS / keys (never commit)
+private.key
+server.crt
+server.csr
+*.pcap
 
 # https://raw.githubusercontent.com/github/gitignore/main/Global/macOS.gitignore
 # General

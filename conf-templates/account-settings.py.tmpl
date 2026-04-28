@@ -27,7 +27,7 @@ SECRET_KEY = os.environ["SECRET_KEY"]
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "[::1]", "arena-account", "host.docker.internal", $HOSTNAMES_LIST]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "[::1]", "arena-account", "host.docker.internal", $HOSTNAMES_LIST,"192.168.0.26","192.168.3.30"]
 ALLOWED_SCHEME = "https://"
 CSRF_TRUSTED_ORIGINS = [ALLOWED_SCHEME + host for host in ALLOWED_HOSTS]
 
@@ -203,6 +203,7 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "allauth.account.middleware.AccountMiddleware",  # 添加这一行
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]

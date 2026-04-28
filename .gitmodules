@@ -1,11 +1,9 @@
-
-   
 [submodule "arena-web-core"]
 	path = arena-web-core
-	url = https://github.com/arenaxr/arena-web-core
+	url = https://github.com/YiYun-ll/arena-web-core
 [submodule "arena-persist"]
 	path = arena-persist
-	url = https://github.com/arenaxr/arena-persist 
+	url = https://github.com/arenaxr/arena-persist
 [submodule "arena-account"]
 	path = arena-account
-	url = https://github.com/arenaxr/arena-account 
+	url = https://github.com/YiYun-ll/arena-account

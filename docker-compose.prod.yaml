@@ -41,6 +41,11 @@ services:
   arena-account:
     image: arenaxrorg/arena-account:${ARENA_ACCOUNT_VERSION:-latest} # pulls from https://hub.docker.com/repository/docker/arenaxrorg/arena-account
     restart: unless-stopped
+    volumes:
+    - ./conf/arena-account-settings.py:/usr/src/app/conf/arena-account-settings.py:ro
+    # 添加以下两行 ⬇️
+    - ./arena-account/users/utils.py:/usr/src/app/users/utils.py:ro
+    - ./arena-account/users/persistence.py:/usr/src/app/users/persistence.py:ro
 
   mqtt:
     image: arenaxrorg/arena-broker:${ARENA_BROKER_VERSION:-latest} # pulls from https://hub.docker.com/repository/docker/arenaxrorg/arena-broker

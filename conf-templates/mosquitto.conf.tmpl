@@ -28,17 +28,29 @@ protocol mqtt
 listener 9001
 protocol websockets
 
+# listener 8083
+# protocol websockets
+# certfile /etc/letsencrypt/live/${HOSTNAME}/cert.pem
+# cafile /etc/letsencrypt/live/${HOSTNAME}/chain.pem
+# keyfile /etc/letsencrypt/live/${HOSTNAME}/privkey.pem
+
+# listener 8883
+# protocol mqtt
+# certfile /etc/letsencrypt/live/${HOSTNAME}/cert.pem
+# cafile /etc/letsencrypt/live/${HOSTNAME}/chain.pem
+# keyfile /etc/letsencrypt/live/${HOSTNAME}/privkey.pem
+
 listener 8083
 protocol websockets
-certfile /etc/letsencrypt/live/${HOSTNAME}/cert.pem
-cafile /etc/letsencrypt/live/${HOSTNAME}/chain.pem
-keyfile /etc/letsencrypt/live/${HOSTNAME}/privkey.pem
+certfile /etc/letsencrypt/live/localhost/cert.pem
+cafile  /etc/letsencrypt/live/localhost/chain.pem
+keyfile /etc/letsencrypt/live/localhost/privkey.pem
 
 listener 8883
 protocol mqtt
-certfile /etc/letsencrypt/live/${HOSTNAME}/cert.pem
-cafile /etc/letsencrypt/live/${HOSTNAME}/chain.pem
-keyfile /etc/letsencrypt/live/${HOSTNAME}/privkey.pem
+certfile /etc/letsencrypt/live/localhost/cert.pem
+cafile  /etc/letsencrypt/live/localhost/chain.pem
+keyfile /etc/letsencrypt/live/localhost/privkey.pem
 
 # =================================================================
 # Logging

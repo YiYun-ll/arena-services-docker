@@ -15,11 +15,16 @@ services:
       - ./store:/usr/share/nginx/html/store:ro # mount store files
       - ./conf/demo/arena-web-conf:/usr/share/nginx/html/conf # arena client code conf
       - account-static-content:/usr/share/nginx/html/user/static:ro # serve account static files
+      - ./custom-conf/gauth.json:/usr/share/nginx/html/conf/gauth.json:ro
     ports:
       - "80:80" # map port 80 on the host to port 80 on the container
       - "443:443"
     command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'" # reload certificates every 6h
     restart: unless-stopped # service will respawn unless we tell docker to stop it
+    cap_add:
+      - NET_ADMIN
+    sysctls:
+      - net.ipv4.ip_forward=1
 
   mongodb:
     image: mongo:${MONGO_VERSION:-latest} # pull from https://hub.docker.com/_/mongo/
